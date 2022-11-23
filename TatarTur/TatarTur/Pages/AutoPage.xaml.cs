@@ -24,10 +24,13 @@ namespace TatarTur.Pages
         private void Authorization_Clicked(object sender, EventArgs e)
         {
             var user = App.Database.GetUsers().Where(u => u.Email == loginEntry.Text && u.Password == passwordEntry.Text).ToList().FirstOrDefault();
-            if (user != null)
+            if (user != null && user.IsAdmin == true)
             {
+               
                 Navigation.PushAsync(new ToursPage(user));
             }
+            else if(user != null && user.IsAdmin == false)
+                Navigation.PushAsync(new TourClientPage(user));
             else
             {
                 DisplayAlert("Ошибка", "Неверные данные", "ОК");

@@ -14,5 +14,6 @@ namespace TatarTur.Sqlite
         [Unique]
         public string Email { get; set; }
         public string Name { get; set; }
+        public bool IsAdmin { get; set; }
     }
 }

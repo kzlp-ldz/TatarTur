@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using TatarTur.Sqlite;
+using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,12 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace TatarTur.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ToursPage : ContentPage
+    public partial class TourClientPage : ContentPage
     {
         public City city = new City();
         public User user = new User();
         public List<City> cityList { get; set; }
-        public ToursPage(User usr)
+        public TourClientPage(User usr)
         {
             InitializeComponent();
             cityList = new List<City>();
@@ -24,21 +24,14 @@ namespace TatarTur.Pages
 
             user = usr;
 
-            
+
             this.BindingContext = this;
-            
         }
         protected override void OnAppearing()
         {
             ToursList.ItemsSource = App.Database.GetTours();
             base.OnAppearing();
         }
-
-        private async void AddTour(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AddTourPage());
-        }
-
         private async void TourList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Tour selectedTour = (sender as CollectionView).SelectedItem as Tour;

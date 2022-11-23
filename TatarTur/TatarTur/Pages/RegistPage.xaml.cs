@@ -19,12 +19,17 @@ namespace TatarTur.Pages
         }
         private async void btnRegistrClicked(object sender, EventArgs e)
         {
-            User user = new User()
-            {
-                Name = nameEntry.Text,
-                Email = emailEntry.Text,
-                Password = passwordEntry.Text
-            };
+            User user = new User();
+
+            user.Name = nameEntry.Text;
+            user.Email = emailEntry.Text;
+            user.Password = passwordEntry.Text;
+            if (App.Database.IsNewUser())
+                user.IsAdmin = true;
+            else
+                user.IsAdmin = false;
+            
+            
 
             if (!String.IsNullOrEmpty(user.Email) && !String.IsNullOrEmpty(user.Password))
             {
