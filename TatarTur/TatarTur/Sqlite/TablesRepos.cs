@@ -225,5 +225,15 @@ namespace TatarTur.Sqlite
         {
             return App.Database.GetUsers().FirstOrDefault() == null;
         }
+        public void AddAdmin()
+        {
+            User user = new User();
+            user.Email = "admin";
+            user.Password = "admin";
+            user.IsAdmin = true;
+            user.Name = "Admin";
+
+            SaveUser(user);
+        }
     }
 }

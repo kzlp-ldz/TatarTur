@@ -33,6 +33,7 @@ namespace TatarTur
             if (App.Database.IsNewUser())
             {
                 App.Database.CityTemplate();
+                App.Database.AddAdmin();
                 MainPage = new NavigationPage(new Pages.AutoPage());
             }
             else

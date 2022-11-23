@@ -24,10 +24,7 @@ namespace TatarTur.Pages
             user.Name = nameEntry.Text;
             user.Email = emailEntry.Text;
             user.Password = passwordEntry.Text;
-            if (App.Database.IsNewUser())
-                user.IsAdmin = true;
-            else
-                user.IsAdmin = false;
+            user.IsAdmin = false;
             
             
 
