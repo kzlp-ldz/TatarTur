@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TatarTur.Pages.AddTourPage" Visual="Material" Title="Добавить тур">
+    <ScrollView>
+        <StackLayout Padding="20" >
+            <StackLayout >
+                <StackLayout>
+                    <Label Text="Название тура"  TextColor="black"></Label>
+                    <Entry x:Name="nameTour" />
+                </StackLayout>
+                
+                <StackLayout>
+                    <Label Text="Город"  TextColor="black"></Label>
+                    <StackLayout>
+                        <Picker Title="Выберите город" x:Name="cities" ItemsSource="{Binding cityList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" SelectedIndexChanged="Picker_SelectedIndexChanged">
+
+                        </Picker>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Рейтинг тура"  TextColor="black"></Label>
+                    <Entry x:Name="ratingTour"  Keyboard="Numeric"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Загрузите фото"  TextColor="black"></Label>
+                    <Image x:Name="TourPhoto" Source="{Binding PhotoPath}" Aspect="Fill" HeightRequest="200"></Image>
+                    <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal">
+                        <Button Clicked="GetPhotoAsync" Text="Галерея" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Описание"  TextColor="black"></Label>
+                    <Editor x:Name="descriptionTour"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Ссылка"  TextColor="black"></Label>
+                    <Entry x:Name="urlTour" Keyboard="Url"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal">
+                <Button Text="Отмена" Clicked="Cancel" HorizontalOptions="FillAndExpand"/>
+                <Button Text="Добавить" Clicked="SaveTour" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

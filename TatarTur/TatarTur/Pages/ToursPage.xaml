@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TatarTur.Pages.ToursPage" Title="Туры" Visual="Material">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="AddTour">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource FontFamily="Font" Glyph="&#xe145;"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        <StackLayout>
+            <StackLayout>
+                <Picker Title="Выберите город" x:Name="cities" ItemsSource="{Binding cityList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" SelectedIndexChanged="Picker_SelectedIndexChanged">
+                    
+                </Picker>
+            </StackLayout>
+            <CollectionView x:Name="ToursList" ItemsSource="{Binding}" SelectionChanged="TourList_ItemSelected" SelectionMode="Single"
+                ItemsLayout="HorizontalGrid, 3">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="TourPhoto" 
+                                        Source="{Binding PhotoPath}"
+                                        HeightRequest="106"
+                                        WidthRequest="106"
+                                        Aspect="AspectFit"
+                                        Margin="10">
+                            </Image>
+
+                            <Frame Grid.Row="1" Padding="0" CornerRadius="12" Margin="16, -36, 16, 36">
+                                <Label Text="{Binding Name}"
+                                    Grid.Row="1"
+                                    HorizontalTextAlignment="Center"
+                                    TextColor="Black"/>
+                            </Frame>
+                                <Frame Grid.Row="2" Padding="0" CornerRadius="12" Margin="16, -36, 16, 36">
+                                    <Label Text="{Binding Rating}"
+                                   Grid.Row="2"
+                                   HorizontalTextAlignment="Center"
+                                   TextColor="Black"/>
+                                </Frame>
+                            </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        </StackLayout>
+        </Grid>
+        </ContentPage.Content>
+</ContentPage>

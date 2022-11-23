@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TatarTur.Pages.RegistPage" Visual="Material">
+    <NavigationPage.TitleView>
+        <Label Text="Регистрация" FontSize="Large" Margin="50,0"></Label>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout Padding="30" Spacing="40">
+            <StackLayout  Spacing="10">
+                <StackLayout>
+                    <Label Text="Никнейм" FontSize="Large"></Label>
+                    <Entry x:Name="nameEntry"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Логин" FontSize="Large"></Label>
+                    <Entry x:Name="emailEntry" Keyboard="Email"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Пароль" FontSize="Large"></Label>
+                    <Entry x:Name="passwordEntry" IsPassword ="True"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Повтор пароля" FontSize="Large"></Label>
+                    <Entry x:Name="password2Entry" IsPassword ="True"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button Text="Зарегистрироваться" Clicked="btnRegistrClicked" ></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

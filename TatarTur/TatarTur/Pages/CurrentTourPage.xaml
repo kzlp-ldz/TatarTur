@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TatarTur.Pages.CurrentTourPage" Visual="Material" Title="Просмотр тура">
+    <ScrollView>
+        <StackLayout Padding="20" >
+            <StackLayout >
+                <StackLayout>
+                    <Label Text="Название тура"  TextColor="black"></Label>
+                    <Entry x:Name="nameTour" IsEnabled="False" />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Город"  TextColor="black"></Label>
+                    <Entry x:Name="cityTour" IsEnabled="False" />
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Рейтинг тура"  TextColor="black"></Label>
+                    <Entry x:Name="ratingTour" IsEnabled="False"  Keyboard="Numeric"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Фото"  TextColor="black"></Label>
+                    <Image x:Name="TourPhoto" Source="{Binding PhotoPath}" Aspect="Fill" HeightRequest="200"></Image>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Описание"  TextColor="black"></Label>
+                    <Editor x:Name="descriptionTour" IsEnabled="False" />
+                </StackLayout>
+                <StackLayout>
+                    <Button Text="Официальный сайт" Clicked="GoToSiteTour" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <CollectionView x:Name="ReviewsList" ItemsSource="{Binding}" SelectionMode="Single"
+               >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            
+                                
+                                <StackLayout Margin="10" >
+                                    <StackLayout>
+                                        <Label Text="Отзыв"  TextColor="black"></Label>
+                                        <Editor x:Name="reviewTour" IsEnabled="False" Text="{Binding Description}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal">
+                <Button Text="Отмена" Clicked="Cancel" HorizontalOptions="FillAndExpand"/>
+                <Button Text="Добавить отзыв" Clicked="AddReviewTour" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
