@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "521880163445",
+    "firebase_url": "https://turtat-fb968-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "turtat-fb968",
+    "storage_bucket": "turtat-fb968.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521880163445:android:46cbca836737fef9c9943c",
+        "android_client_info": {
+          "package_name": "com.companyname.tatartur"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521880163445-lsuc5rvrdgv1jrklpoi4l2ahbckluurn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJHkah8HuTLw3mIWc5SdV5azm6jihHjj4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521880163445-lsuc5rvrdgv1jrklpoi4l2ahbckluurn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -21,7 +21,7 @@
             </Grid.RowDefinitions>
         <StackLayout>
             <StackLayout>
-                <Picker Title="Выберите город" x:Name="cities" ItemsSource="{Binding cityList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" SelectedIndexChanged="Picker_SelectedIndexChanged">
+                <Picker Title="Выберите город" x:Name="cities" ItemsSource="{Binding cityList}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedColorName, Mode=TwoWay}" >
                     
                 </Picker>
             </StackLayout>

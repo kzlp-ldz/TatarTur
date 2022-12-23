@@ -20,7 +20,7 @@ namespace TatarTur.Pages
         {
             InitializeComponent();
             cityList = new List<City>();
-            cityList = App.Database.GetCities();
+            //cityList = App.Database.GetCities();
 
             user = usr;
 
@@ -40,11 +40,11 @@ namespace TatarTur.Pages
             await Navigation.PushAsync(new CurrentTourPage(selectedTour, user));
         }
 
-        private void Picker_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            city = cities.SelectedItem as City;
-
-            ToursList.ItemsSource = App.Database.GetTours().Where(x => x.IdCity == city.Id).ToList();
-        }
+        //private void Picker_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    city = cities.SelectedItem as City;
+        //
+        //    ToursList.ItemsSource = App.Database.GetTours().Where(x => x.IdCity == city.Id).ToList();
+        //}
     }
 }

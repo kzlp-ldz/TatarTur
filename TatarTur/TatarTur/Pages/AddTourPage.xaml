@@ -40,7 +40,7 @@
             </StackLayout>
             <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal">
                 <Button Text="Отмена" Clicked="Cancel" HorizontalOptions="FillAndExpand"/>
-                <Button Text="Добавить" Clicked="SaveTour" HorizontalOptions="FillAndExpand"/>
+                <Button Text="Добавить"  HorizontalOptions="FillAndExpand"/>
             </StackLayout>
         </StackLayout>
     </ScrollView>

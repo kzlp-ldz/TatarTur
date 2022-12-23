@@ -16,13 +16,13 @@ namespace TatarTur.Pages
         public List<City> cityList { get; set; }
         public City city = new City();
         public string pathName;
-        public AddTourPage()
-        {
-            InitializeComponent();
-            cityList = new List<City>();
-            cityList = App.Database.GetCities();
-            this.BindingContext = this;
-        }
+       // public AddTourPage()
+       // {
+       //     InitializeComponent();
+       //     cityList = new List<City>();
+       //     cityList = App.Database.GetCities();
+       //     this.BindingContext = this;
+       // }
         private async void GetPhotoAsync(object sender, EventArgs e)
         {
             try
@@ -49,22 +49,22 @@ namespace TatarTur.Pages
         {
             city = cities.SelectedItem as City;
         }
-        private async void SaveTour(object sender, EventArgs e)
-        {
-            Tour tour = new Tour()
-            {
-                Name = nameTour.Text,
-                IdCity = city.Id,
-                Rating = double.Parse(ratingTour.Text),
-                Description = descriptionTour.Text,
-                uri = new Uri(urlTour.Text),
-                PhotoPath = pathName,
-            };
-            if (!String.IsNullOrEmpty(tour.Name))
-            {
-                App.Database.SaveTour(tour);
-            }
-            await this.Navigation.PopAsync();
-        }
+       // private async void SaveTour(object sender, EventArgs e)
+       // {
+       //     Tour tour = new Tour()
+       //     {
+       //         Name = nameTour.Text,
+       //         IdCity = city.Id,
+       //         Rating = double.Parse(ratingTour.Text),
+       //         Description = descriptionTour.Text,
+       //         uri = new Uri(urlTour.Text),
+       //         PhotoPath = pathName,
+       //     };
+       //     if (!String.IsNullOrEmpty(tour.Name))
+       //     {
+       //         App.Database.SaveTour(tour);
+       //     }
+       //     await this.Navigation.PopAsync();
+       // }
     }
 }

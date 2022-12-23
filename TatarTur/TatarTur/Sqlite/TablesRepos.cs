@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SQLite;
+using Firebase.Database;
+using Firebase.Database.Query;
+using Newtonsoft.Json;
+using System.Collections.ObjectModel;
+
+using System.Threading.Tasks;
+
 
 namespace TatarTur.Sqlite
 {
@@ -13,15 +20,23 @@ namespace TatarTur.Sqlite
         {
             database = new SQLiteConnection(databasePath);
             database.CreateTable<User>();
-            database.CreateTable<City>();
             database.CreateTable<Review>();
             database.CreateTable<Ticket>();
             database.CreateTable<Tour>();
             database.CreateTable<UserTicket>();
         }
-        public List<City> GetCities()
+        
+        public static List<City> GetCitiesAsync()
         {
-            return database.Table<City>().ToList();
+             ObservableCollection<City> cities = new ObservableCollection<City>();
+            FirebaseClient firebaseClient = new FirebaseClient("https://turtat-fb968-default-rtdb.europe-west1.firebasedatabase.app/");
+            var collection = firebaseClient.Child("City").AsObservable(City).Subscribe((dbevent) =>
+            {
+                if (dbevent.Object != null)
+                    cities.Add(dbevent.Object);
+            });
+
+                return (List<City>)collection;
         }
 
         public City GetCity(int id)
@@ -194,32 +209,6 @@ namespace TatarTur.Sqlite
             {
                 return database.Insert(item);
             }
-        }
-        public void CityTemplate()
-        {
-            City city = new City();
-            city.Name = "Казань";
-            SaveCity(city);
-            city.Name = "Бугульма";
-            SaveCity(city);
-            city.Name = "Азнакаево";
-            SaveCity(city);
-            city.Name = "Альметьевск";
-            SaveCity(city);
-            city.Name = "Булгар";
-            SaveCity(city);
-            city.Name = "Лениногорск";
-            SaveCity(city);
-            city.Name = "Нижнекамск";
-            SaveCity(city);
-            city.Name = "Набережные Челны";
-            SaveCity(city);
-            city.Name = "Чистополь";
-            SaveCity(city);
-            city.Name = "Елабуга";
-            SaveCity(city);
-            city.Name = "Мамадышы";
-            SaveCity(city);
         }
         public bool IsNewUser()
         {
